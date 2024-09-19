@@ -3,7 +3,7 @@ sudo nano /etc/systemd/system/tigervnc.service
 ========================================
 [Unit]
 Description=Inicia o tigervncserver
-After=network.target
+After=syslog.target network.target
 
 [Service]
 Type=forking
