@@ -1,0 +1,25 @@
+sudo nano /etc/systemd/system/tigervnc.service
+
+========================================
+[Unit]
+Description=Inicia o tigervncserver
+After=network.target
+
+[Service]
+ExecStart=/caminho/para/seu/programa --opcoes
+User=seu_usuario
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+========================================
+
+sudo chmod 644 /etc/systemd/system/meu_servico.service
+sudo systemctl daemon-reload
+
+sudo systemctl start meu_servico
+sudo systemctl enable meu_servico
+
+sudo systemctl status meu serviço
+journalctl -u meu_servico
