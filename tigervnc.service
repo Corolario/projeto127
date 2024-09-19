@@ -6,8 +6,12 @@ Description=Inicia o tigervncserver
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/vncserver -localhost no
+Type=forking
 User=usuario1
+Group=usuario1
+ExecStart=/usr/bin/vncserver -localhost no :1
+ExecStop=/usr/bin/vncserver -kill :1
+
 Restart=always
 RestartSec=3
 
