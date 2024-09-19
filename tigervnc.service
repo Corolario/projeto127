@@ -8,12 +8,12 @@ After=syslog.target network.target
 [Service]
 Type=forking
 User=usuario1
-Group=usuario1
+PAMName=login
+PIDFile=/home/usuario1/.vnc/%H:%i.pid
 ExecStart=/usr/bin/vncserver -localhost no :1
 ExecStop=/usr/bin/vncserver -kill :1
 
-Restart=always
-RestartSec=3
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
